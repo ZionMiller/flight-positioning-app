@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
+  post "/signup", to: "users#create"
+  get "/me", to: "users#show"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+
   resources :flights #, only: [:index, :show]
   resources :airports #, only: [:index, :show]
   resources :users #, only: [:show, :update, :destroy]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
