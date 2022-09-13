@@ -25,7 +25,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :not_found
     end
 
     def authenticate_user
-        render json: { errors: {User: "You don't have acces"} }, status: :unathorized unless current_user
+        render json: { errors: {User: "You don't have access"} }, status: :unathorized unless current_user
     end
 
     def authorized?
