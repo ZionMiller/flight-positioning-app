@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import LogOut from './LogOut'
 
 const NavBar = ({updateUser}) => {
 
