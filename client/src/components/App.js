@@ -1,22 +1,27 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import NavBar from "./NavBar";
 import './App.css';
+import LandingPage from "./LandingPage";
+import MyFlights from "./MyFlights"
+import SearchFLights from "./SearchFlights"
+
 
 function App() {
-
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
+    <div className="app">
+        <NavBar />
+          <Switch>
+          <Route path="/search-flights">
+            <SearchFLights />
+          </Route>
+          <Route path="/my-flights">
+            <MyFlights/>
           </Route>
           <Route path="/">
-            <h1>Testing</h1>
+            <LandingPage />
           </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+          </Switch>
+    </div>
   );
 }
 
