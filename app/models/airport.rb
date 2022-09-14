@@ -1,4 +1,3 @@
 class Airport < ApplicationRecord
-    has_many :flights
-    has_many :users, through: :flights
+    has_many :available_flights
 end

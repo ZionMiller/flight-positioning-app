@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :flights
-    has_many :airports, through: :flights
+    has_many :favorites
+    has_many :available_flights, through: :favorites
 
     has_secure_password
 

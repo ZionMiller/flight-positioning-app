@@ -2,7 +2,7 @@ puts "Seeding Data..."
 
 #Create Airports
 a1 = Airport.create(name: "Albuquerque International Sunport", zipcode: 87106, airport_code: "ABQ")
-a2 = Airport.create(name: "Atlantic City International Airport", zipcode: 08215, airport_code: "ACY")
+a2 = Airport.create(name: "Atlantic City International Airport", zipcode: 80215, airport_code: "ACY")
 a3 = Airport.create(name: "Austin-Bergstrom International Airport", zipcode: 78719, airport_code: "AUS")
 a4 = Airport.create(name: "Boulder City Municipal Airport", zipcode: 89005, airport_code: "BLD")
 a5 = Airport.create(name: "Cedar City Regional Airport", zipcode: 84720, airport_code: "CDC")
@@ -25,3 +25,10 @@ a21 = Airport.create(name: "Tucson International Airport", zipcode: 85756, airpo
 a22 = Airport.create(name: "Yuma International Airport", zipcode: 85365, airport_code: "YUM")
 
 puts "Seeding Done!"
+ 
+puts "creating available flights"
+20.times do
+    AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id)
+end
+puts "done available flights"
+
