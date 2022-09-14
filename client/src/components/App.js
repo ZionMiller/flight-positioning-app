@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className="app">
-        <NavBar updateUser={updateUser}/>
+        <NavBar currentUser ={currentUser} updateUser={updateUser}/>
           <Switch>
           <Route path="/search-flights">
             <SearchFLights />

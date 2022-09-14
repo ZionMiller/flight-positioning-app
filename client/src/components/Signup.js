@@ -38,7 +38,7 @@ const Signup = ({updateUser}) => {
                 history.push(`/users/${user.id}`)
             })
         }else {
-            res.json().then(json => setErrors(json.errors))
+            res.json().then(json => setErrors(Object.entries(json.errors)))
         }
     })
 
@@ -59,7 +59,7 @@ const Signup = ({updateUser}) => {
   return (
     <div>
         <h3>Sign Up</h3>
-        {errors? <div>{errors}</div>:null}
+        {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         <form onSubmit={handleSubmit}>
         <label >Full name:</label><br></br>
         <input type="text" id="name" name="name" value ={formData.name}  onChange={handleChange}/><br></br>
