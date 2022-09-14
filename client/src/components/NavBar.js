@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-const NavBar = ({updateUser}) => {
+const NavBar = ({currentUser, updateUser}) => {
 
   const history = useHistory()
    //make delete request
@@ -14,12 +14,22 @@ const NavBar = ({updateUser}) => {
   };
 
   return (
-    <div>
+    <>
+      {currentUser ?
+      <div>
         <Link to="/"><button>Landing Page</button></Link>
-        <Link to="/search-flights"><button>Search Flights</button></Link>
-        <Link to="/my-flights"><button>MyFlights </button></Link>
-        <Link ><button onClick={handleLogOut}>Log Out </button></Link>
-    </div>
+          <Link to="/search-flights"><button>Search Flights</button></Link>
+          <Link to="/my-flights"><button>MyFlights </button></Link>
+          <Link ><button onClick={handleLogOut}>Log Out </button></Link>
+      </div>
+      :
+      <div>
+        <Link to="/"><button>Landing Page</button></Link>
+        <Link to="/login"><button>Log In</button></Link>
+        <Link to="/signup"><button>Sign up</button></Link>
+      </div>
+      }
+    </>
   )
 }
 
