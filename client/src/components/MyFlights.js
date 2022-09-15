@@ -1,20 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 const MyFlights = ({result}) => {
-  const [favoritesList, setFavoritesList] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
 
- //add items to favorites list
- function addToFavoritesList(result) {
-  if(!favoritesList.includes(result)) {
-    setFavoritesList([...favoritesList, result])
-  }
-}
-
- // remove items from favoritesList
- function removeFromFavoritesList(id) {
-  setFavoritesList(favoritesList => favoritesList.filter((favoriteItem) => favoriteItem.id != id))
-}
+  useEffect(() => {
+    fetch(`/favorites`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setFavorites(data)
+    })
+    }, []);
 
   return (
     <div>
