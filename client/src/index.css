@@ -11,3 +11,40 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Container {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  margin: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  justify-content: space-around;
+  -webkit-jusitfy-content: space-around;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+ }
+  
+ .card{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  width:360px;
+  height: auto;
+  text-align: center;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #fff;
+ }
+  
+ /* Pictures in About Developers */
+ .AboutPicture {
+  width: 275px;
+  height: 275px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+ }
+ 
