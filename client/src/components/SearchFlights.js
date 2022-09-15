@@ -3,18 +3,9 @@ import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
 import FlightsContainer from './FlightsContainer';
 
-const SearchFLights = () => {
+const SearchFLights = ({results}) => {
 
   //display results
-  const [results, setResults] = useState([])
-
-  useEffect(() => {
-    fetch(`/available_flights`)
-    .then(res => res.json())
-    .then(data => {
-      setResults(data)
-    })
-    }, []);
 
   const [formData, setFormData] = useState({
     departing_from: "",
