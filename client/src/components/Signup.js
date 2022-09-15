@@ -57,8 +57,8 @@ const Signup = ({updateUser}) => {
             })
     }
   return (
-    <div>
-        <h3>Sign Up</h3>
+    <div className='form'>
+        <h2>Sign Up</h2>
         {errors?errors.map(e => <div>{e[0]+': ' + e[1]}</div>):null}
         <form onSubmit={handleSubmit}>
         <label >Full name:</label><br></br>

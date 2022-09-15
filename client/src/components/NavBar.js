@@ -15,7 +15,7 @@ const NavBar = ({currentUser, updateUser}) => {
   };
 
   return (
-    <>
+    <div id='navBar'>
       {currentUser ?
       <Menu className='menu'>
         <Menu.Item>
@@ -44,7 +44,7 @@ const NavBar = ({currentUser, updateUser}) => {
         </Menu.Item>
     </Menu>
       }
-    </>
+    </div>
   )
 }
 

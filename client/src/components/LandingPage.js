@@ -3,9 +3,14 @@ import React from 'react'
 const LandingPage = () => {
   return (
     <>
-    <h2>Click Below to Search for Cheap Flights</h2>
-        <>.....</>
-        <h3>Welcome to our App </h3>
+    <h1>Flight Finder</h1>
+        <h2>.....</h2>
+        <h2>Click on the Calendar Above to Begin Searching for Cheap Flights</h2>
+        <p>Welcome to our app! Our goal with this project is to help anyone get anywhere in the United States for the 
+            cheapest price possible. When traveling it can be such a hassle finding the right date and lowest price
+            for your travels. With this app, we hope to cut out some of that headache for the consumer by doing the travel 
+            searching for them based off the dates selected. Then our app presents the user with multiple options of 
+            various routes and prices to choose from for their travels. </p>
         <h3>Meet Our Developers</h3>
         <div className="Container">
            <div className="card">
@@ -24,7 +29,7 @@ const LandingPage = () => {
            </div>
            <div className="card">
                <p>
-                   {/* <img className="AboutPicture" id="Justin" src={require()} alt="Justin"/> <br/> */}
+                   <img className="AboutPicture" id="Justin" src={require("../Assets/Justin.jpeg")} alt="Justin"/> <br/>
                    Justin Myers: <a href="https://github.com/jlmyers14">GitHub</a> - {''}
                    <a href="https://www.linkedin.com/in/justin-leroux-myers">LinkedIn</a>
                </p>

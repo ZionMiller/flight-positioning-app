@@ -55,8 +55,8 @@ const Login = ({updateUser}) => {
 
 
   return (
-     <div>
-        <h3>Sign in</h3>
+     <div className='form'>
+        <h2>Log In</h2>
         {errors? <div>{errors}</div>:null}
         <form onSubmit={handleSubmit}>
         <label >Username:</label><br></br>
