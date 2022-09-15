@@ -6,22 +6,16 @@ const FlightDetails = ({result}) => {
 
    const [isFavorite, setIsFavorite] = useState(false);
 
-
    const onFavoriteClick = () => {
-        setIsFavorite((isFavorite) => (!isFavorite));
-        makeRequest()
 
+        setIsFavorite((isFavorite) => (!isFavorite));
+        // makeRequest()
     }
 
-    const makeRequest = () =>{
-
-        console.log(isFavorite)
-        console.log(result.id)
-
-        //POST/ DELETE REQUEST based on if the item has been favorited
-        {isFavorite ?
+    useEffect(()=> {
+        if (isFavorite === true) {
             (
-                fetch(`/favorites`,{
+                fetch(`/available_flights`,{
                     method: 'POST',
                     headers: {
                     "Content-Type": "application/json",
@@ -29,18 +23,38 @@ const FlightDetails = ({result}) => {
                     },
                     body: JSON.stringify(result.id)
                 })
-            ) :  (
-                fetch(`/favorites/${id}`, {
-                method: "DELETE"
-                })
             )
-         }
+        }
+    }, [isFavorite])
+
+
+    const makeRequest = () =>{
+
+        // console.log(isFavorite)
+        console.log(result.id)
+
+        //POST/ DELETE REQUEST based on if the item has been favorited
+        // {isFavorite ?
+        //     (
+        //         fetch(`/favorites`,{
+        //             method: 'POST',
+        //             headers: {
+        //             "Content-Type": "application/json",
+        //             "Accept": "application/json"
+        //             },
+        //             body: JSON.stringify(result.id)
+        //         })
+        //     ) :  (
+        //         fetch(`/favorites/${id}`, {
+        //         method: "DELETE"
+        //         })
+        //     )
+        //  }
 
         {
             <MyFlights result={result}/>
         }
     }
-
 
 
   return (
