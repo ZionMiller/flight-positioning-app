@@ -1,5 +1,5 @@
 import React from 'react'
-import { Menu, Icon } from 'semantic-ui-react';
+import { Menu, Button } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom'
 
 const NavBar = ({currentUser, updateUser}) => {
@@ -17,18 +17,32 @@ const NavBar = ({currentUser, updateUser}) => {
   return (
     <>
       {currentUser ?
-      <div>
-        <Link to="/"><button>Landing Page</button></Link>
-          <Link to="/search-flights"><button>Search Flights</button></Link>
-          <Link to="/my-flights"><button>MyFlights </button></Link>
-          <Link ><button onClick={handleLogOut}>Log Out </button></Link>
-      </div>
+      <Menu className='menu'>
+        <Menu.Item>
+            <Link to="/">Landing Page</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/search-flights">Search Flights</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/my-flights">MyFlights</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link onClick={handleLogOut}>Log Out</Link>
+        </Menu.Item>
+      </Menu>
       :
-      <div>
-        <Link to="/"><button>Landing Page</button></Link>
-        <Link to="/login"><button>Log In</button></Link>
-        <Link to="/signup"><button>Sign up</button></Link>
-      </div>
+    <Menu className='menu'>
+         <Menu.Item>
+            <Link to="/">Landing Page</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/login">Log In</Link>
+        </Menu.Item>
+        <Menu.Item>
+            <Link to="/signup">Sign up</Link>
+        </Menu.Item>
+    </Menu>
       }
     </>
   )
