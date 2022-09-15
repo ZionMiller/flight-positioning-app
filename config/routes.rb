@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :available_flights
+  resources :available_flights, only: [:index]
   resources :favorites
 
   post "/signup", to: "users#create"
