@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :available_flights, only: [:index]
-  resources :favorites
+  resources :favorites, only: [:index, :show, :create , :destroy]
 
   post "/signup", to: "users#create"
   get "/me", to: "users#show"

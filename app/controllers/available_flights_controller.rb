@@ -1,6 +1,6 @@
 class AvailableFlightsController < ApplicationController
 
     def index
-        render json: AvailableFlight.all, status: :ok
+        render json: AvailableFlight.all.order(:price), status: :ok
     end
 end
