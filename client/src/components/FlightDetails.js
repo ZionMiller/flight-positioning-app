@@ -6,13 +6,17 @@ const FlightDetails = ({result}) => {
 
    const [isFavorite, setIsFavorite] = useState(false);
 
-   const onFavoriteClick = () => {
+
+
+   const onFavoriteClick = (e) => {
 
         setIsFavorite((isFavorite) => (!isFavorite));
         // makeRequest()
+
     }
 
     useEffect(()=> {
+
         if (isFavorite === true) {
             (
                 fetch(`/available_flights`,{
@@ -21,9 +25,15 @@ const FlightDetails = ({result}) => {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                     },
-                    body: JSON.stringify(result.id)
+                    body: JSON.stringify({
+                        id: result.id
+                    })
                 })
             )
+        } else if(isFavorite === false) {
+            fetch(`/available_flights/${result.id}`, {
+                method: "DELETE"
+            })
         }
     }, [isFavorite])
 

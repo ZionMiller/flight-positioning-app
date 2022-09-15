@@ -22,7 +22,6 @@ const SearchFLights = () => {
   })
   const [value, onChange] = useState(new Date());
 
-console.log(value)
 
   const handleSubmit = (e) => {
     e.preventDefault()

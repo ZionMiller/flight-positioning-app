@@ -1,7 +1,7 @@
 class FavoritesController < ApplicationController
 
     def index
-        render json: AvailableFlight.find_by(favorite: true), status: :ok
+        render json: AvailableFlight.where(favorite: true), status: :ok
     end
 
     def show

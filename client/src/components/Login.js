@@ -18,7 +18,6 @@ const Login = ({updateUser}) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setFormData(formData);
-        console.log(formData)
 
         //make post request on submit
        fetch(`/login`,{

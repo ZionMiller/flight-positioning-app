@@ -31,6 +31,7 @@ puts "creating available flights"
     AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id, favorite: false)
 end
 a1 = AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id, favorite: true)
+a2 = AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id, favorite: true)
 puts "done available flights"
 
 

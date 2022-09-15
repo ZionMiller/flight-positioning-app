@@ -1,21 +1,27 @@
 class AvailableFlightsController < ApplicationController
 
+    before_action :set_flight, only: [:create, :destroy]
+
     def index
-        render json: AvailableFlight.all.order(:price), status: :ok
+        flights = AvailableFlight.all.order(:price)
+        render json: flights , status: :ok
     end
 
     def create
-        @available_flight.favorite!
-        # render json: favorite, status: :created
+        @available_flight.favorite = true
+        @available_flight.save!
+        render json: @available_flight, status: :created
     end
 
     def destroy
-        @available_flight.favorite!
+        @available_flight.favorite = false
+        @available_flight.save!
     end
 
-    def update
-        @available_flight.update!(favorite: true)
-    end
+    # def update
+    #     @available_flight.update!(flight_params)
+    #      render json: @available_flight, status: :accepted
+    # end
 
     private
     def set_flight
