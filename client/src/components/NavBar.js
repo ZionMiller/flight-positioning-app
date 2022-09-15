@@ -1,4 +1,5 @@
 import React from 'react'
+import { Menu, Icon } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom'
 
 const NavBar = ({currentUser, updateUser}) => {
