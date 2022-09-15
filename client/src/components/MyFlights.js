@@ -18,6 +18,7 @@ const MyFlights = ({result}) => {
 
   return (
     <div>
+        SOME TEST TEXT
     </div>
   )
 }

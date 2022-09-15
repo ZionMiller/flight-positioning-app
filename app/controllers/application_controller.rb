@@ -7,8 +7,8 @@ class ApplicationController < ActionController::API
         render json: { count: session[:count] }
     end
 
-rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
-rescue_from ActiveRecord::RecordNotFound, with: :not_found
+    rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity
+    rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
     private
 

@@ -17,9 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_15_154246) do
   create_table "airports", force: :cascade do |t|
     t.string "name"
     t.integer "zipcode"
-    t.string "airport_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "airport_code"
   end
 
   create_table "available_flights", force: :cascade do |t|

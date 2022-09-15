@@ -16,8 +16,6 @@ const SearchFLights = () => {
     })
     }, []);
 
-
-
   const [formData, setFormData] = useState({
     departing_from: "",
     destination: ""
@@ -30,8 +28,6 @@ console.log(value)
     e.preventDefault()
     setFormData(formData);
     console.log(formData)
-
-
 
     //make post request for flights
 
