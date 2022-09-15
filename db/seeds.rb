@@ -28,8 +28,9 @@ puts "Seeding Done!"
 
 puts "creating available flights"
 20.times do
-    AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id)
+    AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id, favorite: false)
 end
+a1 = AvailableFlight.create(price: rand(100...1000), date: DateTime.now + (rand * 365), return_date: DateTime.now + (rand * 365), departing_from: Airport.all.sample.name, destination: Airport.all.sample.name, layovers: Airport.all.sample.name, airport_id: Airport.all.sample.id, favorite: true)
 puts "done available flights"
 
 
@@ -37,7 +38,7 @@ puts "creating user"
 u1 = User.create(name: "testing", zipcode: 19720, username: "testing", password: "testing")
 puts "done creating user"
 
-puts "creating favorites"
-f = Favorite.create(user_id: u1.id, available_flights_id: AvailableFlight.all.first.id)
-puts "done creating favorites"
+# puts "creating favorites"
+# f = Favorite.create(user_id: u1.id, available_flights_id: AvailableFlight.all.first.id)
+# puts "done creating favorites"
 
