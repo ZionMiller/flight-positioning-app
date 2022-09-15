@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
+import MyFlightCard from './MyFlightCard';
 
 const MyFlights = ({result}) => {
   const [favorites, setFavorites] = useState([]);
-
 
   useEffect(() => {
     fetch(`/favorites`)
@@ -15,7 +15,11 @@ const MyFlights = ({result}) => {
 
   return (
     <div>
-        SOME TEST TEXT
+            {
+              favorites.map((favorite)  => (
+                <MyFlightCard favorite={favorite} />
+              ))
+            }
     </div>
   )
 }

@@ -15,12 +15,22 @@ function App() {
 
   const updateUser = (user) => setCurrentUser(user)
 
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    fetch(`/available_flights`)
+    .then(res => res.json())
+    .then(data => {
+      setResults(data)
+    })
+    }, []);
+
   return (
     <div className="app">
         <NavBar currentUser ={currentUser} updateUser={updateUser}/>
           <Switch>
           <Route path="/search-flights">
-            <SearchFLights />
+            <SearchFLights results={results}/>
           </Route>
           <Route path="/my-flights">
             <MyFlights/>
