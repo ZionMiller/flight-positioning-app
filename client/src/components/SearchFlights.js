@@ -1,11 +1,22 @@
-import React, {useState} from 'react'
-// import Calender from './Calender'
+import React, {useState, useEffect} from 'react'
 import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
+import FlightsContainer from './FlightsContainer';
 
 const SearchFLights = () => {
 
   //display results
-  const [results, setResults] = useState(false)
+  const [results, setResults] = useState([])
+
+  useEffect(() => {
+    fetch(`/available_flights`)
+    .then(res => res.json())
+    .then(data => {
+      setResults(data)
+    })
+    }, []);
+
+
 
   const [formData, setFormData] = useState({
     departing_from: "",
@@ -36,7 +47,10 @@ console.log(value)
         [e.target.name]: e.target.value
         })
 }
+//change displayed results
+const handleSearch  = () => {
 
+}
   return (
     <div>
       <h1>Flights</h1>
@@ -47,6 +61,7 @@ console.log(value)
         <input type="submit" value="Search" />
       </form>
 
+    <FlightsContainer results={results}/>
     </div>
   )
 }
