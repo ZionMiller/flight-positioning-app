@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import Calendar from 'react-calendar'
+import { Form, Button } from 'semantic-ui-react'
 import 'react-calendar/dist/Calendar.css';
 import FlightsContainer from './FlightsContainer';
 
-const SearchFLights = ({results}) => {
+const SearchFLights = ({results, currentUser, isFavorite, setIsFavorite }) => {
 
   //display results
 
@@ -29,6 +30,8 @@ const SearchFLights = ({results}) => {
     }
 
   const handleChange = (e) => {
+    e.preventDefault()
+
     setFormData({...formData,
         [e.target.name]: e.target.value
         })
@@ -39,15 +42,19 @@ const handleSearch  = () => {
 }
   return (
     <div>
-      <h1>Flights</h1>
-      <form onClick={handleSubmit}>
-        <input type="text" id="departing_from" name="departing_from" placeholder='Departing' value ={formData.departing_from} onChange={handleChange}/>
-        <input type="text" id="destination" name="destination" placeholder='Where to?' value ={formData.destination} onChange={handleChange}/>
-       <Calendar onChange={onChange} value={value}/>
-        <input type="submit" value="Search" />
-      </form>
-
-    <FlightsContainer results={results}/>
+       <br></br>
+        <Form>
+        <Form.Group widths='equal' onClick={handleSubmit}>
+        
+        <Form.Input type="text" id="departing_from" name="departing_from" placeholder='Departing city' value ={formData.departing_from} onChange={handleChange}/>
+        <Form.Input type="text" id="destination" name="destination" placeholder='Where to?' value ={formData.destination} onChange={handleChange}/>
+        <Calendar align-items='center' onChange={onChange} value={value}/>
+        <Button type="submit" value="Search"> Search Flights </Button>
+        </Form.Group>
+        </Form>
+        
+    
+    <FlightsContainer results={results} currentUser ={currentUser}/>
     </div>
   )
 }

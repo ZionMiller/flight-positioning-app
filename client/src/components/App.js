@@ -16,6 +16,8 @@ function App() {
   const [results, setResults] = useState([])
   const [favorites, setFavorites] = useState([]);
 
+  
+
   useEffect(() => {
     fetch(`/available_flights`)
     .then(res => res.json())
@@ -23,25 +25,36 @@ function App() {
       setResults(data)
     })
     }, []);
+  
+    useEffect(() => {
+      fetch(`/me`)
+      .then(res => res.json())
+      .then(person => {
+        setCurrentUser(person)
+      })
+      }, []);  
 
-  useEffect(() => {
-    fetch(`/favorites`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-      setFavorites(data)
-    })
-    }, []);
+// function fetchFavorites() {
+//   useEffect(() => {
+//     fetch(`/favorites`)
+//     .then(res => res.json())
+//     .then(data => {
+//       // console.log(data)
+//       setFavorites(data)
+//     })
+//     }, []);
+  
+// }
 
   return (
     <div className="app">
         <NavBar currentUser ={currentUser} updateUser={updateUser}/>
           <Switch>
           <Route path="/search-flights">
-            <SearchFLights results={results}/>
+            <SearchFLights results={results} currentUser ={currentUser}/>
           </Route>
           <Route path="/my-flights">
-            <MyFlights favorites={favorites}/>
+            <MyFlights favorites={favorites} setFavorites={setFavorites} />
           </Route>
           <Route path="/login">
             <Login updateUser={updateUser}/>
