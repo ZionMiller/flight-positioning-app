@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("./Assets/background.jpg") no-repeat
+    center/cover;
 }
 
 code {
@@ -67,4 +69,10 @@ code {
   margin-left: auto;
   margin-right: auto;
   /* text-align: center; */
+}
+
+#logo{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
