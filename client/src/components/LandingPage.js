@@ -15,14 +15,14 @@ const LandingPage = () => {
         <div className="Container">
            <div className="card">
                <p>
-                   {/* <img className="AboutPicture" id="Zion" src={require()} alt="Zion"/> <br/> */}
+                   <img className="AboutPicture" id="Zion" src={require("../Assets/zion1.jpg")} alt="Zion"/> <br/>
                    Zion Miller: <a href="https://github.com/ZionMiller">GitHub</a> - {''}
                    <a href="https://www.linkedin.com/in/zion-miller-b15344170/">LinkedIn</a>
                </p>
            </div>
            <div className="card">
                <p>
-                   {/* <img className="AboutPicture" id="Kevin" src={require()} alt="Kevin"/> <br/> */}
+                   <img className="AboutPicture" id="Kevin" src={require("../Assets/Kevin.jpeg")} alt="Kevin"/> <br/>
                    Kevin Gicheha: <a href="https://github.com/kgicheha">GitHub</a> - {''}
                    <a href="https://www.linkedin.com/in/kevin-gicheha/">LinkedIn</a>         
                </p>

@@ -4,7 +4,6 @@ import { Card } from "semantic-ui-react";
 import FlightDetails from './FlightDetails'
 
 const FlightsContainer = ({results, currentUser }) => {
-  console.log("for_Garret:", results)
   return (
     <>
       <h2>Results</h2>
