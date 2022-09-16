@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Button } from 'semantic-ui-react'
+import { Card, Button, Icon } from 'semantic-ui-react'
 
 
 const MyFlightCard = ({favorite}) => {
@@ -11,10 +11,23 @@ const MyFlightCard = ({favorite}) => {
     <br></br>
     <Card className="Card">
     <Card.Content>
-        <p><strong>Departing From:</strong> {departing_from}</p>
+    <Card.Header>Price: ${price}</Card.Header>
+        <Icon name="ellipsis horizontal"></Icon>
+        <p><strong>Departure: </strong> {departing_from}</p>
+        <Icon name="arrow down"></Icon>
         <p><strong>Layovers: </strong> {layovers}</p>
+        <Icon name="arrow down"></Icon>
         <p><strong>Destination: </strong> {destination}</p>
-        <p><strong>Price:</strong> ${price}</p>
+        <Card.Content extra>
+        <div className='ui two buttons'>
+          <Button basic color='green'>
+            Update Dates
+          </Button>
+          <Button basic color='red'>
+            Remove Flight
+          </Button>
+        </div>
+      </Card.Content>
         </Card.Content>
       </Card>
     </>

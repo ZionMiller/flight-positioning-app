@@ -3,7 +3,6 @@ import { Card } from "semantic-ui-react";
 import MyFlightCard from './MyFlightCard';
 
 const MyFlights = ({favorites, setFavorites}) => {
-  // const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetch(`/favorites`)

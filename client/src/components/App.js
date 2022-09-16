@@ -16,8 +16,6 @@ function App() {
   const [results, setResults] = useState([])
   const [favorites, setFavorites] = useState([]);
 
-  
-
   useEffect(() => {
     fetch(`/available_flights`)
     .then(res => res.json())
@@ -33,18 +31,6 @@ function App() {
         setCurrentUser(person)
       })
       }, []);  
-
-// function fetchFavorites() {
-//   useEffect(() => {
-//     fetch(`/favorites`)
-//     .then(res => res.json())
-//     .then(data => {
-//       // console.log(data)
-//       setFavorites(data)
-//     })
-//     }, []);
-  
-// }
 
   return (
     <div className="app">
