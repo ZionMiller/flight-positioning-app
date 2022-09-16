@@ -12,16 +12,24 @@ import Signup from "./Signup";
 function App() {
 
   const [currentUser, setCurrentUser] = useState("")
-
   const updateUser = (user) => setCurrentUser(user)
-
   const [results, setResults] = useState([])
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetch(`/available_flights`)
     .then(res => res.json())
     .then(data => {
       setResults(data)
+    })
+    }, []);
+
+  useEffect(() => {
+    fetch(`/favorites`)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      setFavorites(data)
     })
     }, []);
 
@@ -33,7 +41,7 @@ function App() {
             <SearchFLights results={results}/>
           </Route>
           <Route path="/my-flights">
-            <MyFlights/>
+            <MyFlights favorites={favorites}/>
           </Route>
           <Route path="/login">
             <Login updateUser={updateUser}/>

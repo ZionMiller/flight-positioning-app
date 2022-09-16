@@ -6,8 +6,6 @@ const FlightDetails = ({result}) => {
 
    const [isFavorite, setIsFavorite] = useState(false);
 
-
-
    const onFavoriteClick = (e) => {
 
         setIsFavorite((isFavorite) => (!isFavorite));
